@@ -1,0 +1,41 @@
+@use './base';
+
+.button {
+    color: base.$color-text;
+    background: #fff;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 600;
+    border: 2px solid #fff;
+    padding: 1rem 2.6rem;
+    display: inline-block;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-two {
+    background: base.$color-two;
+    color: base.$color-text;
+    border-color: base.$color-two;
+}
+
+.button-two:hover {
+    background: #fff;
+    border-color: #fff;
+}
+
+.button-two-outline {
+    color: #fff;
+    background: transparent;
+}
+
+.button-two-outline:hover {
+    background: base.$color-two;
+    color: base.$color-text;
+    border: base.$color-two;
+}
+
+.hero .button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}

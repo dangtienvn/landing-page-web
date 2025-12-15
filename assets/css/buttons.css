@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  color: #232323;
+  overflow-x: hidden;
+}
+body a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 50px;
+  }
+}
+@media (max-width: 400px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.button {
+  color: #232323;
+  background: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 600;
+  border: 2px solid #fff;
+  padding: 1rem 2.6rem;
+  display: inline-block;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-two {
+  background: #F7D9C4;
+  color: #232323;
+  border-color: #F7D9C4;
+}
+
+.button-two:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
+.button-two-outline {
+  color: #fff;
+  background: transparent;
+}
+
+.button-two-outline:hover {
+  background: #F7D9C4;
+  color: #232323;
+  border: #F7D9C4;
+}
+
+.hero .button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=buttons.css.map */

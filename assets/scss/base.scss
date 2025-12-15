@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+// Variables colours
+$color-one: #FF8484;
+$color-two: #F7D9C4;
+$color-text: #232323;
+$color-background1: #EFEFEF;
+$color-background2: #DCEBEB;
+
+$font: 'DM Sans', sans-serif;
+
+// Global styles
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font;
+  color: $color-text;
+  overflow-x: hidden;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @media (max-width: 1200px) { 
+      max-width: 960px; 
+  }
+  @media (max-width: 992px) { 
+      max-width: 720px; 
+  }
+  @media (max-width: 768px) { 
+      max-width: 540px; 
+  }
+  @media (max-width: 576px) {
+      max-width: 100%;
+      padding: 0 50px;
+  }
+  @media (max-width: 400px) {
+      padding: 0 20px;
+  }
+}
+
+@mixin wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+}

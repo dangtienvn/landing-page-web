@@ -1,0 +1,1197 @@
+/* Import base and buttons SCSS files */
+@use './base';
+@use './buttons';
+
+
+/* header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: base.$color-background1;
+    z-index: 1000;
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      height: 3rem;
+      width: auto;
+      display: flex;
+    //   padding-left: 40px;
+      transition: height 0.3s ease;
+    }
+
+    span {
+      font-size: 20px;
+      font-weight: 600;
+      color: base.$color-text;
+      margin-left: 10px;
+    }
+  }
+
+  &__menu {
+    ul {
+      list-style: none;
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      font-weight: 500;
+
+      li {
+        a {
+          display: inline-block;
+          padding: 35px 20px;
+          color: base.$color-text;
+          font-size: 15px;
+
+          &:hover {
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  &__social {
+    ul {
+      list-style: none;
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      li {
+        margin-left: 5px;
+
+        a {
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            background: #fff;
+            border-radius: 5px;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            color: base.$color-text;
+
+
+            &:hover {
+                background: base.$color-two;
+            }
+        }
+      }
+    }
+  }
+
+  &__menu--bar {
+     display: none;
+  }
+
+    @media(max-width: 992px) {
+        &__menu,
+        &__social {
+            display: none;
+        }
+        
+        &__menu--bar {
+            display: block;
+        }
+
+        img {
+            height: 2.5rem;
+            padding: 5px;
+        }
+    }
+}
+/* End header */
+
+/* Hero-Section */
+.hero {
+    background: url('../images/background-hero.jpg') no-repeat center center/cover;
+    background-size: cover;     
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    padding: 150px 0;
+    position: relative; 
+
+    &__wrap {
+        @include base.wrap;
+        
+    }
+    &__container {
+        position: relative;
+        z-index: 2;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #000;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        z-index: 1;
+    }
+
+    
+
+    &__buttons {
+        line-height: 0.5;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__title {
+        color: #fff;
+        font-size: 3.1rem;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 20px;
+    }
+
+    &__desc {
+        color: #fff;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 40px;
+    }
+
+    &__sub--title {
+        color: #fff;
+        position: relative;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        z-index: 2;
+    }
+    /* Responsive Hero-Section */
+    @media (max-width: 767.78px) {
+        &__wrap {
+            padding: 20px 10px; 
+            text-align: center;
+        }
+
+        &__sub--title,
+        &__title,
+        &__desc {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        &__buttons {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+}
+/* End Hero */
+
+/* features-intro */
+.features-intro {
+    padding: 10px;
+    background: base.$color-background1;
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        @include base.wrap;
+    }
+
+    &__image {
+        width: 45%;
+        margin-right: 5%;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    }
+
+    &__content {
+        /* 
+            Nếu về sau đoạn văn quá dài thì nó sẽ 
+            đầy ảnh sang bên phải khiến ảnh bị biến
+            dạng về kích thước (nhỏ đi) để vừa không 
+            gian cho đoạn văn. 
+            -> Để khắc phục ta dùng thuộc tính flex: 1;
+            hoặc width: 50% mục đích là để khối 
+            element content nó sẽ chiếm phần 
+            còn lại của phần inner-wrap.
+        */
+        width: 50%;
+    }
+    
+    &__sub--title {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    &__title {
+        font-size: 50px;
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    &__list {
+        display: flex;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid #fff;
+        background: #fff;
+        padding: 1.8rem 2.5rem;
+        border-radius: 10px;
+        margin-right: 1.5rem;
+        width: 130px;
+        height: 130px;
+        flex-wrap: wrap;
+
+        i {
+            font-size: 32px;
+            color: var(--color-one);
+            margin-bottom: 10px;
+        }
+                
+        span {
+            font-weight: 600;
+        }
+    }
+
+    /* Responsive features-intro */
+    @media(max-width: 1199px) {
+        &__wrap {
+            flex-direction: row; 
+            text-align: left;
+            align-items: center;
+        }
+
+        &__image {
+            width: 45%;
+            margin-right: 5%;
+            margin-bottom: 0;
+        }
+
+        &__content {
+            width: 50%;
+        }
+
+        &__list {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        &__items {
+            margin: 10px 15px 10px 0;
+        }
+
+        /*  
+            Ở breakpoint 1199px, giao diện vẫn đủ rộng để hiển thị 
+            song song 2 cột → nên vẫn để flex-direction: row.
+
+            Giữ width: 45% + 50% để ảnh và nội dung cân đối.
+
+            Chỉ khi nhỏ hơn 991px hoặc 767px mới đổi sang cột dọc 
+            (column) để dễ đọc trên mobile.
+        */ 
+    }
+
+    @media (max-width: 991.98px) {
+        &__wrap {
+            flex-direction: column; /* Chuyển thành cột dọc */
+            text-align: center;
+        }
+
+        &__image {
+            width: 100%;
+            margin: 0 0 30px 0; 
+        }
+
+        &__content {
+            width: 100%;
+        }
+
+        &__list {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        &__items {
+            margin: 10px;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        &__content {
+            text-align: center;
+        }
+
+        &__title {
+            font-size: 40px;
+        }
+
+        &__list {
+            justify-content: center;
+        }
+    }
+}
+/* End features-intro */
+
+/* App-Section */
+.app-section {
+    background: base.$color-background1;
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    &__wrap {
+        @include base.wrap;
+        background-color: #fff;
+        display: flex;
+    }
+
+
+    &__content {
+        flex: 1;
+    }
+
+    &__sub--title {
+        color: var(--color-text);
+    }
+
+    &__title {
+        color: var(--color-text);
+        font-size: 50px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &__image {
+        width: 40%;
+        margin-left: 50px;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+            margin-top: -120px;
+        }
+    }
+
+    /* Responsive App-Section */
+    @media (max-width: 991.98px) {
+        &__wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        &__content {
+            padding-bottom: 150px; /* Tạo khoảng cách giữa text và ảnh */
+        }
+
+        &__title {
+            font-size: 40px;
+        }
+
+        &__image {
+            display: flex;
+            justify-content: center;
+            width: 60%;
+
+            img {
+                width: 100%;
+                border-radius: 10px 10px 0 0; 
+                transform: translateY(-25px);  
+                display: block;
+            }
+        }
+    }
+}
+/* End App-Section */
+
+/* About-Section */
+.about-section {
+    background-color: #fff;
+    
+    &__wrap {
+        @include base.wrap;
+        background-color: #fff;
+    }
+
+    &__title {
+        font-size: 20px;
+    }
+
+    &__desc {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    ul {
+        font-size: 1.1rem;
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        list-style-type: none;
+        padding: 20px;
+        margin: 0;
+    }
+
+    li {
+        width: 33.33%; 
+        font-size: 15px;
+        font-weight: 200;
+        display: flex;
+        align-items: center; /* Canh giữa icon và chữ theo chiều dọc */
+        margin-bottom: 30px; /* Khoảng cách giữa 2 hàng */
+        position: relative;
+        padding-left: 30px; /* Chừa chỗ cho icon tick */
+    }
+
+    ul li::before {
+        content: "✓";
+        border-radius: 50%; 
+        position: absolute;
+        top: -5px;
+        bottom: -5px;
+        right: -5px;
+        left: -25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: base.$color-text;
+        background-color: rgb(239, 239, 239);
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Responsive About-Section */
+    @media (max-width: 991.98px) {
+        &__container {
+            padding: 0 40px;
+        }
+
+        ul li {
+            width: 50%; 
+            margin-bottom: 20px; 
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        ul li {
+            width: 100%; 
+            margin-bottom: 15px; 
+        }
+    }
+}
+/* End About-Section */
+
+/* Features-Section */
+.features-section {
+    background-color: base.$color-background1;
+    padding: 20px;
+    text-align: center;
+
+    &__wrap {
+        @include base.wrap;
+    }
+
+    &__title {
+        font-size: 48px;
+        font-weight: 800;
+        margin-bottom: 50px;
+        color: var(--color-text);
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+        gap: 25px;
+        justify-content: center;
+    }
+
+    &__card {
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        grid-template-columns: repeat(3, 1fr);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    &__card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    &__image {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16 / 9;   
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            display: block;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+
+        i {
+            color: #111;
+            font-size: 18px;
+        }
+    }
+
+    &__content {
+        padding: 25px;
+        text-align: left;
+
+        h6 {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 6px;
+        }
+
+        h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111;
+        }
+    }
+/* Responsive Features-Section */
+    @media (max-width: 992px) {
+        &__card {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+     @media (max-width: 576px) {
+        &__card {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+/* End Feature-Section */
+
+/* Careers-Section */
+.careers-section {
+    padding: 60px;
+    background-color: base.$color-text;
+
+    &__wrap {
+        @include base.wrap;
+        background-color: #fff;
+    }
+        
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    &__text {
+        flex: 1 1 400px;
+    }
+
+    &__subtitle {
+        color: #6B6F76;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    &__heading {
+        color: #1e1e1e;
+        font-size: 48px;
+        font-weight: 800;
+        line-height: 1.2;
+    }
+
+    &__jobs {
+        flex: 1 1 250px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        font-size: 16px;
+        font-weight: 500;
+        color: #444;
+        transition: all 0.3s ease;
+    }
+
+    &__card i:first-child {
+        margin-right: 12px;
+        color: #6b6f76;
+    }
+
+    &__card i:last-child {
+        color: #6b6f76;
+    }
+
+    &__card:hover {
+        background-color: var(--color-background1);
+        transform: translateY(-2px);
+    }
+    /* Responsive Careers-Section */ 
+    @media(max-width: 991.20px) {
+        &__content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        &__text,
+        &__jobs {
+            flex: 1 1 100%;
+        }
+
+        &__heading {
+            font-size: 36px;
+        }
+    }
+}
+
+/* End Careers-Section  */
+
+/* Members-Section */
+.members-section {
+    padding-top: 5px;
+    background-color: base.$color-background1;
+    text-align: center;
+
+    &__wrap {
+        @include base.wrap;
+    }
+
+    &__content {
+    /* 
+        Thẻ <br> không hoạt động nếu đặt ở cuối thẻ </h4> 
+        vì nó đang đặt bên ngoài thẻ <h4>, nên không có hiệu 
+        lực tách dòng giữa 2 thẻ block-level (<h4> và <h3>).
+
+        h4 và h3 vốn đã là block-level elements, nên chúng 
+        mặc định đã nằm trên 2 dòng riêng biệt, trừ khi CSS 
+        đang set display: inline hoặc flex.
+    */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__sub--title {
+        color: #777;
+        font-size: 15px;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    &__big--title {
+        font-size: 50px;
+        font-weight: 700;
+        color: #1e1e1e;
+        margin-top: 0;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__card {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 30px 20px;
+        width: 250px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+
+    &__card:hover {
+        transform: translateY(-6px);
+    }
+
+    img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__job {
+        color: #888;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    a {
+        display: inline-block;
+        background-color: #f5f5f5;
+        color: #333;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 8px;
+        margin: 0 4px;
+        transition: background-color 0.3s;
+    }
+
+    a:hover {
+        background-color: #ddd;
+    }
+
+    /*Responsive Members-Sections*/
+    @media (max-width: 991.20px) {
+        &__card {
+             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        &__list {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+/* End Members-Section */
+
+
+/* About-Section */
+.about-section {
+    padding: 60px 20px;
+    background-color: base.$color-background1;
+
+    &__wrap {
+        @include base.wrap;
+    }
+
+    &__card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+        flex-wrap: wrap;
+        gap: 20px;
+        background: #fff;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        min-width: 120px;
+
+            
+        h4 {
+            font-size: 14px;
+            color: #777;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 5px 0 0;
+        }
+    }
+
+    &__btn--preview {
+        background-color: #222;
+        color: #fff;
+        padding: 10px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    &__btn--preview:hover {
+        background: #000;
+    }
+
+    /* Responsive About-Section */
+    @media (max-width: 575.98px) {
+        &__info {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__item {
+            min-width: auto;
+        }
+    }
+}
+
+/* End About-Section */
+
+/* Testimonials-Section */
+.testimonials-section {
+    background-color: #2e3336;
+    color: white;
+    padding: 60px;
+
+    &__wrap {
+        @include base.wrap;
+    }
+
+    &__header {
+        text-align: left;
+        margin-bottom: 40px;
+    }
+
+    &__sub-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #BBBBBB;
+        margin-bottom: 5px;
+    }
+
+    &__title {
+        font-size: 48px;
+        font-weight: 800;
+        color: #fff;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+
+    &__card {
+        background-color: #fff;
+        color: #444;
+        border-radius: 12px;
+        padding: 30px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__text {
+        font-size: 20px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    &__quote {
+        font-size: 32px;
+        font-weight: bold;
+        color: #555;
+        position: absolute;
+        bottom: -10px;
+        right: 0;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+         h4 {
+            font-weight: 700;
+            margin: 0;
+        }
+
+        p {
+            font-size: 14px;
+            color: #777;
+            margin: 0;
+        }
+    }
+  
+    /* Responsive Testimonials-Section */
+    @media(max-width: 767.98px) {
+        &__header {
+            text-align: center;
+        }
+    }
+
+}
+/* End Testimonials-Section */
+
+/* Introduce-Section */
+.introduce-section {
+    background-color: base.$color-background2;
+    padding: 60px;
+
+    &__wrap {
+        @include base.wrap;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 40px;
+    }
+
+    &__background {
+        width: 84%;
+        height: 500px;
+        border-radius: 12px;
+        background: url('../images/background-introduction.jpg') no-repeat center center/cover;
+        margin: 0 auto;         // CĂN GIỮA CHUẨN
+        position: relative;     // Cần cho icon đứng giữa
+    }
+
+    &__click {
+        width: 100px;
+        height: 100px;
+        border: none;
+        border-radius: 50%;
+        background: base.$color-background1; 
+        cursor: pointer;
+        position: absolute; // Bắt buộc phải có để định vị trí
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;  // icon cân giữa chuẩn
+        transition: transform 0.3s ease, box-shadow 0.2s ease;
+
+        // hiệu ứng hover
+         &:hover {
+            transform: translate(-50%, -50%) scale(1.05); // vẫn đứng giữa, không nhảy
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        // Hiệu ứng click
+        &:active {
+            transform: translate(-50%, -50%) scale(0.95); // thu nhỏ vẫn đứng giữa
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        // Icon play
+        &::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-40%, -50%); // cân giữa, hơi lệch phải 1 chút cho tự nhiên
+            width: 0;
+            height: 0;
+            border-left: 14px solid black;    // chiều rộng mũi tam giác
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+    }
+}
+/* End Introduce-Section */
+
+/* Contact-Section */
+.contact-section {
+    padding: 80px;
+    
+    &__wrap {
+        background-color: base.$color-background2;
+        @include base.wrap;
+    }
+    
+    &__content {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    &__sub--title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #777777;
+        margin-bottom: 5px;
+    }
+
+    &__title {
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--color-text);
+    }
+
+    &__input--row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        
+        input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+    }
+
+    textarea {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        height: 200px;
+        resize: vertical;
+        margin-bottom: 20px;
+    }
+
+    &__submit--row {
+        text-align: right;
+    }
+
+    &__btn--submit {
+        background-color: #111827;
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    &__btn--submit:hover {
+        color: base.$color-text;
+        background-color: base.$color-two;
+    }
+    /*Responsive Contact-Section*/
+    @media (max-width: 575.98px) {
+        &__input--row {
+            flex-direction: column;
+        }
+    }
+} 
+/* End Contact-Section */
+
+/* Footer-Section */
+.footer-section {
+    background-color: base.$color-background1;
+    padding: 80px;
+
+    &__wrap {
+ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__map {
+        width: 900px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    &__content {
+        text-align: center;
+    }
+
+    &__text {
+        font-size: 16px;
+        color: #777;
+    }
+
+    /* Responsive Footer-Section */
+    @media (max-width: 991.98px) {
+        &__map {
+            width: 100%;
+        }
+    }
+    @media (max-width: 575.98px) {
+        &__wrap {
+            padding: 0 20px;
+        }
+    }
+}
+/* End Footer-Section */
