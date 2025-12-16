@@ -1,0 +1,11 @@
+# Bỏ qua thư mục thư viện nặng
+node_modules/
+
+# Bỏ qua file hệ thống của Mac/Windows
+.DS_Store
+Thumbs.db
+
+# Bỏ qua file log lỗi của npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
