@@ -6,13 +6,11 @@ Dự án được xây dựng với mục tiêu trình bày giao diện chuyên 
 ---
 
 ## Demo
-👉 [Xem Demo Tại Đây](https://your-demo-link.com)
-link vercel
+
 ---
 
 ## Giao Diện Chính
 
-![Preview]()
 
 ---
 
@@ -59,6 +57,7 @@ SoftwareM4/
 │ └── /video
 ├── /node_modules
 ├── index.html
+├── .gitignore
 ├── package-lock.json
 ├── package.json
 └── README.md
